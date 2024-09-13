@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "BG Enhancer",
   "version": "1.0",
-  "description": "The BG Enhancer is a Chrome extension designed to enhance images by adding customizable backgrounds and watermarks. The main features of the app include:",
+  "description": "The BG Enhancer is a Chrome extension designed to enhance images by adding customizable backgrounds and watermarks",
   "permissions": [
     "activeTab",
     "tabs",
