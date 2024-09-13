@@ -2,8 +2,8 @@
 
 1. Clone this repository
    ```bash
-   git clone [repository_url]
-   cd [repository_name]
+   git clone https://github.com/MrArabAi/BG-Enhancer
+   cd BG-Enhancer
    ```
 
 2. Copy `config.example.js` to `config.js`
