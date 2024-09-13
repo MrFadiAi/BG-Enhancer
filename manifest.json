@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Twitter Image Enhancer",
+  "version": "1.0",
+  "description": "Enhance images for Twitter with backgrounds and text overlays.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "identity",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.firebaseio.com/",
+    "https://*.firebaseapp.com/"
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "dist/background.bundle.js",
+    "type": "module"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "popup/popup.html",
+        "expanded.html"
+        
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

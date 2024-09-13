@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BG Enhancer - Expanded View</title>
+  <link rel="stylesheet" href="expanded.css">
+</head>
+<body>
+  <!-- App Container -->
+  <div id="app-container">
+    <div style="flex-direction: column; align-items: center;">
+      <h1>BG Enhancer - Expanded View</h1>
+      <div id="image-container">
+        <div id="paste-area" contenteditable="true">
+          <p>Drag & drop or paste image here</p>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <!-- Background Controls -->
+      <div class="control-group">
+        <label for="background-type">Background:</label>
+        <select id="background-type">
+          <option value="solid">Solid Color</option>
+          <option value="gradient" selected>Gradient</option>
+        </select>
+      </div>
+
+      <!-- Solid Color Options -->
+      <div id="solid-color-options" class="control-group">
+        <label>Solid Color:</label>
+        <div class="color-presets">
+          <!-- Preset Colors -->
+          <button class="color-preset" style="background-color: #1DA1F2;"></button>
+          <button class="color-preset" style="background-color: #14171A;"></button>
+          <button class="color-preset" style="background-color: #657786;"></button>
+          <button class="color-preset" style="background-color: #AAB8C2;"></button>
+          <button class="color-preset" style="background-color: #E1E8ED;"></button>
+          <button class="color-preset" style="background-color: #F5F8FA;"></button>
+          <button class="color-preset" style="background-color: #FF6B6B;"></button>
+          <button class="color-preset" style="background-color: #4ECDC4;"></button>
+          <button class="color-preset" style="background-color: #45B649;"></button>
+          <button class="color-preset" style="background-color: #FF8C00;"></button>
+          <button class="color-preset" style="background-color: #9B59B6;"></button>
+          <button class="color-preset" style="background-color: #3498DB;"></button>
+        </div>
+        <input type="color" id="solid-color" value="#1DA1F2">
+      </div>
+
+      <!-- Gradient Options -->
+      <div id="gradient-options" class="control-group">
+        <label>Gradient:</label>
+        <div class="gradient-presets">
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #34495e, #2c3e50)" style="background-image: linear-gradient(to right, #34495e, #2c3e50);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #1DA1F2, #0C85D0)" style="background-image: linear-gradient(to right, #1DA1F2, #0C85D0);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #833AB4, #FD1D1D, #FCB045)" style="background-image: linear-gradient(to right, #833AB4, #FD1D1D, #FCB045);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #4158D0, #C850C0, #FFCC70)" style="background-image: linear-gradient(to right, #4158D0, #C850C0, #FFCC70);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #0093E9, #80D0C7)" style="background-image: linear-gradient(to right, #0093E9, #80D0C7);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #8EC5FC, #E0C3FC)" style="background-image: linear-gradient(to right, #8EC5FC, #E0C3FC);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #D4145A, #FBB03B)" style="background-image: linear-gradient(to right, #D4145A, #FBB03B);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #3498db, #2980b9)" style="background-image: linear-gradient(to right, #3498db, #2980b9);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #e74c3c, #c0392b)" style="background-image: linear-gradient(to right, #e74c3c, #c0392b);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #2ecc71, #27ae60)" style="background-image: linear-gradient(to right, #2ecc71, #27ae60);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #f39c12, #d35400)" style="background-image: linear-gradient(to right, #f39c12, #d35400);"></button>
+          <button class="gradient-preset" data-gradient="linear-gradient(to right, #9b59b6, #8e44ad)" style="background-image: linear-gradient(to right, #9b59b6, #8e44ad);"></button>
+        </div>
+        <input type="color" id="gradient-start" value="#34495e">
+        <input type="color" id="gradient-end" value="#2c3e50">
+      </div>
+
+      <!-- Watermark Controls -->
+      <div class="control-group">
+        <label for="use-watermark">Use Watermark Logo:
+          <input type="checkbox" id="use-watermark" checked>
+        </label>
+        <label for="watermark-logo">Watermark Logo:</label>
+        <input type="file" id="watermark-logo" accept="image/*">
+        <button id="save-watermark">Save Watermark</button>
+        <label for="watermark-opacity">Watermark Opacity:</label>
+        <input type="range" id="watermark-opacity" min="1" max="100" value="15">
+        <span id="watermark-opacity-value">15%</span>
+        <label for="watermark-size">Watermark Size:</label>
+        <input type="range" id="watermark-size" min="5" max="50" value="50">
+        <span id="watermark-size-value">50%</span>
+      </div>
+    </div>
+    <div class="buttons">
+      <button id="save-image">Save Image</button>
+      <button id="copy-image">Copy Image</button>
+    </div>
+    <div style="height: 10px;"></div>
+    <button id="donate-button" class="donate-button">Donate</button>
+  </div>
+
+  <script type="module" src="expanded.js"></script>
+</body>
+</html>

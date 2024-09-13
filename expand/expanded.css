@@ -1,0 +1,194 @@
+/* expanded.css */
+
+/* Apply box-sizing globally */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5;
+    overflow: hidden;
+}
+
+#app-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#app-container h1 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+/* Image Container */
+#image-container {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#paste-area {
+    width: 100%;
+    height: 0;
+    padding-bottom: 30%; /* Reduced aspect ratio */
+    position: relative;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    cursor: pointer;
+}
+
+#paste-area p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: #657786;
+    text-align: center;
+}
+
+#paste-area img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#paste-area .watermark {
+    pointer-events: none;
+}
+
+/* Controls Container */
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.control-group {
+    margin-bottom: 10px;
+}
+
+.control-group label {
+    font-weight: bold;
+    color: #14171a;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.control-group select,
+.control-group input[type="color"],
+.control-group input[type="file"],
+.control-group input[type="range"] {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.color-presets,
+.gradient-presets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25px, 1fr));
+    gap: 3px;
+    margin-bottom: 5px;
+}
+
+.color-preset,
+.gradient-preset {
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Buttons */
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.buttons button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#sign-out {
+    background-color: #e4e6eb;
+    color: #050505;
+}
+
+#sign-out:hover {
+    background-color: #d8dadf;
+}
+
+/* Watermark Opacity Value */
+#watermark-opacity-value {
+    font-size: 12px;
+    color: #657786;
+}
+
+/* Adjust label and input alignment */
+label[for="use-watermark"] {
+    display: flex;
+    align-items: center;
+}
+
+label[for="use-watermark"] input[type="checkbox"] {
+    margin-left: 5px;
+}
+
+/* Add this to your existing CSS */
+#watermark-size-value {
+    font-size: 12px;
+    color: #657786;
+}
+
+@media (max-width: 600px) {
+    .controls {
+        grid-template-columns: 1fr;
+    }
+}
+.donate-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.donate-button:hover {
+    background-color: #cc0000;
+}

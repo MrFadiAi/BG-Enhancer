@@ -1,0 +1,96 @@
+#login-container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+#login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    padding: 20px;
+    min-width: 300px;
+}
+
+#login-container .container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+#login-container .input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+#login-container input {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background-color: transparent;
+    transition: border-color 0.3s ease;
+}
+
+#login-container input:focus {
+    outline: none;
+    border-bottom-color: #1877f2;
+}
+
+#login-container label {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 16px;
+    color: #999;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+#login-container input:focus ~ label,
+#login-container input:not(:placeholder-shown) ~ label {
+    top: -20px;
+    font-size: 14px;
+    color: #1877f2;
+}
+
+#login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#login-container button:hover {
+    background-color: #166fe5;
+}
+
+#login-container #errorMessage {
+    margin-top: 1rem;
+    text-align: center;
+    color: #c00;
+    font-size: 14px;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.fadeOut {
+    animation: fadeOut 7s forwards;
+}

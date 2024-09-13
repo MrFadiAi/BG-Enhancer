@@ -1,0 +1,204 @@
+/* app.css */
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Adjusted width */
+    font-family: Arial, sans-serif;
+    padding-right: 50px;
+    padding-left: 10px;
+    background-color: #f0f2f5;
+}
+
+#app-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+#app-container h1 {
+    text-align: center;
+    color: #1da1f2;
+}
+
+#app-container #image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#app-container #paste-area {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    cursor: pointer;
+    padding: 35px; /* Fixed padding */
+    box-sizing: border-box; /* Ensures padding is included in width and height */
+}
+
+#app-container #paste-area p {
+    color: #657786;
+    text-align: center;
+}
+
+#app-container #paste-area img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#app-container .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#app-container .controls label {
+    font-weight: bold;
+    color: #14171a;
+}
+
+#app-container .controls select,
+#app-container .controls input[type="text"],
+#app-container .controls input[type="file"],
+#app-container .controls input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccd6dd;
+    border-radius: 5px;
+}
+
+#app-container .controls input[type="color"] {
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    border: none;
+}
+
+#app-container .controls input[type="range"] {
+    width: 100%;
+}
+
+#app-container .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#app-container .buttons button {
+    flex: 1;
+    padding: 8px;
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#app-container .buttons button:hover {
+    background-color: #0c8de4;
+}
+
+#app-container #solid-color-options,
+#app-container #gradient-options {
+    display: none;
+}
+
+#app-container .color-presets,
+#app-container .gradient-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+#app-container .color-preset,
+#app-container .gradient-preset {
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: transform 0.1s ease-in-out;
+}
+
+#app-container .color-preset:hover,
+#app-container .gradient-preset:hover {
+    transform: scale(1.1);
+}
+
+#app-container .gradient-preset {
+    background-size: 100% 100%;
+    background-position: 0 0, 0 100%;
+    background-repeat: no-repeat;
+}
+
+#app-container #padding-value,
+#app-container #watermark-opacity-value,
+#app-container #watermark-size-value {
+    font-size: 12px;
+    color: #657786;
+}
+
+#app-container #sign-out {
+    background-color: #e4e6eb;
+    color: #050505;
+}
+
+#app-container #sign-out:hover {
+    background-color: #d8dadf;
+}
+
+#app-container #paste-area .watermark {
+    pointer-events: none;
+}
+
+.donate-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.donate-button:hover {
+    background-color: #cc0000;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8em;
+}
+
+footer a {
+    color: #1DA1F2;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
