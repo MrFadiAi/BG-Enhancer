@@ -39,27 +39,10 @@ This Chrome extension allows users to paste, edit, and save images with custom b
 - `expand/expanded.js`: Main JavaScript file containing the editor logic
 - `config.js`: Configuration file (not included in the repository)
 
-## Development
-
-### Prerequisites
-
-- Node.js and npm
 
 ### Setup
-
-1. Install dependencies:
-   ```
-   npm install
-   ```
-
-2. Make changes to the source files as needed.
-
-3. Build the extension:
-   ```
-   npm run build
-   ```
-
-4. Load the `dist` folder as an unpacked extension in Chrome.
+ Download this repo as zip and extract it
+ Load the folder as an unpacked extension in Chrome.
 
 ## Contributing
 
