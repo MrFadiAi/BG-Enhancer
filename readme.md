@@ -37,8 +37,6 @@ This Chrome extension allows users to paste, edit, and save images with custom b
 - `background.js`: Background script (currently empty)
 - `expand/expanded.html`: Main HTML file for the editor
 - `expand/expanded.js`: Main JavaScript file containing the editor logic
-- `config.js`: Configuration file (not included in the repository)
-
 
 ### Setup
  Download this repo as zip and extract it
