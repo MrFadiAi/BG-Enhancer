@@ -1,65 +1,7 @@
 // popup.js
-import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
-import { firebaseConfig } from '../config.js';
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
 // Get references to UI elements
-const loginContainer = document.getElementById('login-container');
 const appContainer = document.getElementById('app-container');
-
-// Login form elements
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const signUpButton = document.getElementById('signUpButton');
-const signInButton = document.getElementById('signInButton');
-const errorMessage = document.getElementById('errorMessage');
-
-// Add this line to get a reference to the sign-out button
-const signOutButton = document.getElementById('sign-out');
-
-// Monitor authentication state
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in
-    loginContainer.style.display = 'none';
-    appContainer.style.display = 'block';
-    initializeAppFunctionality(); // Initialize main app
-  } else {
-    // No user is signed in
-    loginContainer.style.display = 'flex';
-    appContainer.style.display = 'none';
-  }
-});
-
-// Handle Sign Up
-signUpButton.addEventListener('click', async () => {
-  const email = emailInput.value.trim();
-  const password = passwordInput.value;
-  try {
-    await createUserWithEmailAndPassword(auth, email, password);
-    errorMessage.textContent = '';
-  } catch (error) {
-    console.error('Sign up error:', error);
-    errorMessage.textContent = `Sign up error: ${error.message}`;
-  }
-});
-
-// Handle Sign In
-signInButton.addEventListener('click', async () => {
-  const email = emailInput.value.trim();
-  const password = passwordInput.value;
-  try {
-    await signInWithEmailAndPassword(auth, email, password);
-    errorMessage.textContent = '';
-  } catch (error) {
-    console.error('Sign in error:', error);
-    errorMessage.textContent = `Sign in error: ${error.message}`;
-  }
-});
 
 // Initialize Main App Functionality
 function initializeAppFunctionality() {
@@ -82,18 +24,19 @@ function initializeAppFunctionality() {
   const watermarkSize = document.getElementById('watermark-size');
   const watermarkSizeValue = document.getElementById('watermark-size-value');
   const donateButton = document.getElementById('donate-button');
-// Check if the donateButton exists
-if (donateButton) {
-  // Add this event listener for the donate button
-  donateButton.addEventListener('click', () => {
-    // Open the donation link in a new tab
-    chrome.tabs.create({
-      url: 'https://commerce.coinbase.com/checkout/cabb081c-a821-496b-a6ec-ac9a2a5cb0bf'
+
+  // Check if the donateButton exists
+  if (donateButton) {
+    donateButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      // Open the donation link in a new tab
+      chrome.tabs.create({
+        url: 'https://commerce.coinbase.com/checkout/cabb081c-a821-496b-a6ec-ac9a2a5cb0bf'
+      });
     });
-  });
-} else {
-  console.error('Donate button not found in the DOM.');
-}
+  } else {
+    console.error('Donate button not found in the DOM.');
+  }
 
   const colorPresets = document.querySelectorAll('.color-preset');
   const gradientPresets = document.querySelectorAll('.gradient-preset');
@@ -103,9 +46,7 @@ if (donateButton) {
   watermarkLogo.src = chrome.runtime.getURL('logo.png'); // Default watermark
 
   let customWatermarkUploaded = false;
-
   let selectedGradient = '';
-
   const isExtension = typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.id;
 
   // Set default background type and gradient colors
@@ -117,41 +58,77 @@ if (donateButton) {
   toggleBackgroundOptions();
 
   // Add event listeners to presets
-  colorPresets.forEach((preset) => preset.addEventListener('click', applyColorPreset));
-  gradientPresets.forEach((preset) => preset.addEventListener('click', applyGradientPreset));
+  colorPresets.forEach((preset) => preset.addEventListener('click', (event) => {
+    event.preventDefault();
+    applyColorPreset(event);
+  }));
+  gradientPresets.forEach((preset) => preset.addEventListener('click', (event) => {
+    event.preventDefault();
+    applyGradientPreset(event);
+  }));
 
   // Event Listeners
-  pasteArea.addEventListener('paste', handlePaste);
-  pasteArea.addEventListener('dragover', handleDragOver);
-  pasteArea.addEventListener('drop', handleDrop);
-  backgroundType.addEventListener('change', toggleBackgroundOptions);
-  solidColor.addEventListener('input', applyBackground);
-  gradientStart.addEventListener('input', applyBackground);
-  gradientEnd.addEventListener('input', applyBackground);
-  saveImageButton.addEventListener('click', saveImage);
-  copyImageButton.addEventListener('click', copyImage);
-  expandViewButton.addEventListener('click', expandView);
-  watermarkLogoInput.addEventListener('change', handleWatermarkLogoChange);
-  saveWatermarkButton.addEventListener('click', saveWatermark);
-  watermarkOpacity.addEventListener('input', function () {
+  pasteArea.addEventListener('paste', (event) => {
+    event.preventDefault();
+    handlePaste(event);
+  });
+  pasteArea.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    handleDragOver(event);
+  });
+  pasteArea.addEventListener('drop', (event) => {
+    event.preventDefault();
+    handleDrop(event);
+  });
+  backgroundType.addEventListener('change', (event) => {
+    event.preventDefault();
+    toggleBackgroundOptions();
+  });
+  solidColor.addEventListener('input', (event) => {
+    event.preventDefault();
+    applyBackground();
+  });
+  gradientStart.addEventListener('input', (event) => {
+    event.preventDefault();
+    applyBackground();
+  });
+  gradientEnd.addEventListener('input', (event) => {
+    event.preventDefault();
+    applyBackground();
+  });
+  saveImageButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    saveImage();
+  });
+  copyImageButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    copyImage();
+  });
+  expandViewButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    expandView();
+  });
+  watermarkLogoInput.addEventListener('change', (event) => {
+    event.preventDefault();
+    handleWatermarkLogoChange(event);
+  });
+  saveWatermarkButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    saveWatermark();
+  });
+  watermarkOpacity.addEventListener('input', (event) => {
+    event.preventDefault();
     watermarkOpacityValue.textContent = `${watermarkOpacity.value}%`;
     applyWatermark();
   });
-  watermarkSize.addEventListener('input', function () {
+  watermarkSize.addEventListener('input', (event) => {
+    event.preventDefault();
     watermarkSizeValue.textContent = `${watermarkSize.value}%`;
     applyWatermark();
   });
-  useWatermarkCheckbox.addEventListener('change', applyWatermark);
-
-  // Add this event listener for the sign-out button
-  signOutButton.addEventListener('click', async () => {
-    try {
-      await signOut(auth);
-      console.log('User signed out successfully');
-    } catch (error) {
-      console.error('Sign out error:', error);
-      errorMessage.textContent = `Sign out error: ${error.message}`;
-    }
+  useWatermarkCheckbox.addEventListener('change', (event) => {
+    event.preventDefault();
+    applyWatermark();
   });
 
   // Load saved watermark if available
@@ -480,3 +457,5 @@ if (donateButton) {
     }
   }
 }
+// Initialize the app
+initializeAppFunctionality();

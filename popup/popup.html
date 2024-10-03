@@ -3,34 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>BG Enhancer</title>
-    <!-- Include both CSS files -->
-    <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <!-- Login Container -->
-    <div id="login-container">
-        <div class="container">
-            <div class="input-group">
-                <input type="email" id="email" placeholder=" " required>
-                <label for="email">Email</label>
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" placeholder=" " required>
-                <label for="password">Password</label>
-            </div>
-            <button id="signUpButton">Sign Up</button>
-            <button id="signInButton">Sign In</button>
-            <div id="errorMessage"></div>
-        </div>
-    </div>
-
     <!-- App Container -->
-    <div id="app-container" style="display: none;">
+    <div id="app-container">
         <div style="flex-direction: column; align-items: center;">
             <div class="buttons">
                 <button id="expand-view">Expand View</button>
-                <button id="sign-out">Sign Out</button>
             </div>
             <h1>BG Enhancer</h1>
             <div style="height: 10px;"></div>
@@ -91,7 +71,6 @@
                 <input type="color" id="gradient-end" value="#2c3e50">
             </div>
 
-
             <!-- Watermark Controls -->
             <label for="use-watermark">Use Watermark Logo:
                 <input type="checkbox" id="use-watermark" style="display: inline-block; margin-left: 5px;" checked>
@@ -118,6 +97,6 @@
       <p>Created by <a href="https://x.com/MrFadiTech" target="_blank">@MrFadiTech</a></p>
     </footer>
 
-    <script type="text/javascript" src="../dist/popup.bundle.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
 </body>
 </html>

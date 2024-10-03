@@ -4,20 +4,14 @@
   "version": "1.0",
   "description": "The BG Enhancer is a Chrome extension designed to enhance images by adding customizable backgrounds and watermarks",
   "permissions": [
-    "activeTab",
     "tabs",
-    "identity",
     "storage"
-  ],
-  "host_permissions": [
-    "https://*.firebaseio.com/",
-    "https://*.firebaseapp.com/"
   ],
   "action": {
     "default_popup": "popup/popup.html"
   },
   "background": {
-    "service_worker": "dist/background.bundle.js",
+    "service_worker": "/background.js",
     "type": "module"
   },
   "web_accessible_resources": [
